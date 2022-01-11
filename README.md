@@ -1,5 +1,7 @@
 # international_pedia
 
+Demo:https://international-pedia.vercel.app/
+
 ## Project setup
 ```
 npm install
