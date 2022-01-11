@@ -1,42 +1,24 @@
 <template>
-  <v-app>
+  <v-app :class="getBackgroundColor">
     <v-app-bar
-      app
-      color="primary"
-      dark
+        elevation="2"
+        app
+        color="primary"
+        dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-container fluid class="container">
+        <v-row>
+          <v-col :md="10" :cols="7">
+            <div class="d-flex align-items-center align-left">
+              <h4 class="pt-2 text--text">Where in the world?</h4>
+            </div>
+          </v-col>
+          <v-col :md="2" :cols="5">
+            <theme-switcher/>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-app-bar>
-
     <v-main>
       <router-view/>
     </v-main>
@@ -45,11 +27,30 @@
 
 <script>
 
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 export default {
   name: 'App',
+  components: {ThemeSwitcher},
+  data: () => ({}),
 
-  data: () => ({
-    //
-  }),
+  computed:{
+    getBackgroundColor(){
+      if (this.$vuetify.theme.dark === true){
+        return 'dark'
+      }
+      else{
+        return 'light'
+      }
+    }
+  }
 };
 </script>
+
+<style>
+.dark{
+  background-color: #202d36 !important
+}
+.light{
+  background-color:#fafafa !important
+}
+</style>

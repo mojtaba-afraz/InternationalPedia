@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Nunito;
+    src: url(../Font/NunitoSans-Regular.ttf);
+}
+.v-application {
+    font-family: Nunito !important;
+}
+.container{
+    padding: 20px 30px
+}
